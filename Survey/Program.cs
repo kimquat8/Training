@@ -7,13 +7,13 @@ namespace Survey
         static void Main(string[] args)
         {
             Console.WriteLine("What is your name?");
-            var name = Console.ReadLine();
+            var name = TryAnswer();
 
             Console.WriteLine("What is your age?");
-            var age = Console.ReadLine();
+            var age = TryAnswer();
 
             Console.WriteLine("What month were you born in?");
-            var month = Console.ReadLine();
+            var month = TryAnswer();
 
             Console.WriteLine("Your name is: {0}", name);
             Console.WriteLine("Your age is: {0}", age);
@@ -21,7 +21,7 @@ namespace Survey
 
             if (month == "September")
             {
-                Console.WriteLine("You are a Virgo"); 
+                Console.WriteLine("You are a Virgo");
             }
             else if (month == "July")
             {
@@ -31,6 +31,17 @@ namespace Survey
             {
                 Console.WriteLine("You are a Taurus");
             }
+        }
+
+        static string TryAnswer()
+        {
+            var answer = Console.ReadLine();
+            if (answer == "")
+            {
+                Console.WriteLine("Field cannot be left blank. Try again.");
+                return Console.ReadLine();
+            }
+            return answer;
         }
     }
 }
