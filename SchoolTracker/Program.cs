@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace SchoolTracker
 {
@@ -6,13 +7,30 @@ namespace SchoolTracker
     {
         static void Main(string[] args)
         {
-            var StudentGrades = new int[] { 80, 77, 65, 100, 98, 42, 90, 12, 55, 96 };
+          
+            var StudentNames = new List<string>();
+            var StudentGrades = new List<int>();
 
-            foreach (var StudentGrade in StudentGrades)
+            var Adding = true;
+
+            while(Adding)
             {
-                Console.WriteLine(StudentGrade);
+                Console.WriteLine("Student Name: ");
+                StudentNames.Add(Console.ReadLine());
+
+                Console.WriteLine("Student Grade: ");
+                StudentGrades.Add(int.Parse(Console.ReadLine()));
+
+                Console.WriteLine("Add another? y/n");
+
+                if (Console.ReadLine() != "y")
+                    Adding = false;
             }
-            
+
+            for (int i = 0; i < StudentNames.Count; i++)
+            {
+                Console.WriteLine("Name: {0}, Grade: {1}", StudentNames[i], StudentGrades[i]);
+            }
         }
     }
 }
